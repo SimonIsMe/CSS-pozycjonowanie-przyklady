@@ -112,6 +112,41 @@
                         <iframe src="absolute/height.html"></iframe>
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                        <code>float:left</code> i <code>float:right</code>
+                    </td>
+                    <td>
+                        Elementy są wrzucane na środek i <strong>płyną w lewy/prawy góry róg</strong> jak najbardziej się da:
+                        <iframe src="float/example.html"></iframe>
+                        <iframe src="float/example-left-right.html"></iframe><br />
+                        <iframe src="float/example-left-right-different-sizes.html"></iframe><br />
+                    </td>
+                    <td>
+                        Istnieje podział na elementy z <code>float</code> i bez <code>float</code>:
+                        <ol>
+                            <li>
+                                Elementy <strong>bez</strong> <code>float</code> umieszczane są jak leci względem immych elementów bez <code>float</code>
+                            </li>
+                            <li>
+                                Elementy <strong>z</strong> <code>float</code> umieszczane są zgodnie z algorytmem względem immych elementów z <code>float</code>
+                            </li>
+                        </ol>
+                        <iframe src="float/brother-without-positioning.html"></iframe>
+                        <iframe src="float/brother-without-positioning-order.html"></iframe>
+                        <iframe src="float/brother-without-positioning-order-left.html"></iframe>
+                    </td>
+                    <td>
+                        Uwzględnia parametr <code>width</code>
+                        <iframe src="float/width.html"></iframe>
+                        <iframe src="float/width-without-width.html"></iframe>
+                    </td>
+                    <td>
+                        Uwzględnia parametr <code>height</code>
+                        <iframe src="float/height.html"></iframe>
+                        <iframe src="float/height-without-height.html"></iframe>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </body>
