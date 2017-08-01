@@ -44,6 +44,7 @@
                     </td>
                     <td>
                         Pozycjonowanie względem okna przeglądarki
+                        <iframe src="fixed/example.html"></iframe>
                     </td>
                     <td>
                         Elementy wyświetlane są jak leci:
@@ -56,6 +57,29 @@
                     <td>
                         Wartość <code>height</code> jest ważniejsza niż szerokość obliczona z parametrów <code>top</code> i <code>bottom</code>:
                         <iframe src="fixed/height.html"></iframe>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>position:relative</code>
+                    </td>
+                    <td>
+                        Pozycjonowanie względem elementu-rodzica
+                        <iframe src="relative/example.html"></iframe>
+                    </td>
+                    <td>
+                        Elementy wyświetlane są jak leci <strong>zaraz za</strong> elementem:
+                        <iframe src="relative/brother-without-positioning.html"></iframe>
+                    </td>
+                    <td>
+                        Wartość <code>width</code> jest ważniejsza niż szerokość obliczona z parametrów <code>left</code> i <code>right</code>:
+                        <iframe src="relative/width.html"></iframe>
+                        Co ma sens, bo nie wiemy jak szeroki jest rodzic.
+                    </td>
+                    <td>
+                        Wartość <code>height</code> jest ważniejsza niż szerokość obliczona z parametrów <code>top</code> i <code>bottom</code>:
+                        <iframe src="relative/height.html"></iframe>
+                        Co ma sens, bo nie wiemy jak wysoki jest rodzic.
                     </td>
                 </tr>
             </tbody>
