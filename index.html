@@ -82,6 +82,36 @@
                         Co ma sens, bo nie wiemy jak wysoki jest rodzic.
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                        <code>position:absolute</code>
+                    </td>
+                    <td>
+                        Pozycjonowanie względem okna przeglądarki
+                        <iframe src="absolute/example.html"></iframe><br />
+
+                        Lub względem pierwszego elementu-przodka (ojciec, dziadek, pradziadek, ...), który ma <strong><code>position:relative</code></strong>
+                        <iframe src="absolute/example-with-relative-parent.html"></iframe><br />
+
+                        Można zauważyć, ze <code>position:absolute</code> <strong>zawsze pozycjonuje względem najbliższego elementu <code>position:relative</code> i domyślnie <code>body</code> jest takim elementem</strong>.
+                    </td>
+                    <td>
+                        Elementy wyświetlane są jak leci, <strong>nie zważając na położenie elementu z <code>position:absolute</code></strong>
+                        (zwróć uwagę, ze niebieski prostokąt i prostokąt-rodzic jest "pod" pozycjonowanym elementem):
+                        <iframe src="absolute/brother-without-positioning.html"></iframe>
+
+                        W przypadku elementu-przodka z <code>position:relative</code> element pozycjonowany zachowuje się podobnie:
+                        <iframe src="absolute/brother-without-positioning-relative-parent.html"></iframe>
+                    </td>
+                    <td>
+                        Wartość <code>width</code> jest ważniejsza niż szerokość obliczona z parametrów <code>left</code> i <code>right</code>:
+                        <iframe src="absolute/width.html"></iframe>
+                    </td>
+                    <td>
+                        Wartość <code>height</code> jest ważniejsza niż szerokość obliczona z parametrów <code>top</code> i <code>bottom</code>:
+                        <iframe src="absolute/height.html"></iframe>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </body>
