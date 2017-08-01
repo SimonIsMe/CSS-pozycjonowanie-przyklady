@@ -7,6 +7,13 @@
             table td, table th {
                 border: 1px solid gray;
             }
+            iframe {
+                width:200px;
+                height:200px;
+                display:block;
+                border:1px solid lightgray;
+                margin:5px;
+            }
         </style>
     </head>
     <body>
@@ -23,9 +30,6 @@
                         <code>display:</code>
                     </th>
                     <th>
-                        Względem czego
-                    </th>
-                    <th>
                         Jak zachowa się element-brat, który nie ma pozycjonowania?
                     </th>
                     <th>
@@ -33,9 +37,6 @@
                     </th>
                     <th>
                         Wysokość
-                    </th>
-                    <th>
-                        Opis
                     </th>
                 </tr>
             </thead>
@@ -45,12 +46,11 @@
                         <code>position:fixed</code>
                     </td>
                     <td rowspan="3">
-                        opis
+                        Pozycjonowanie względem okna przeglądarki
                     </td>
                     <td>
                         <code>inline</code>
                     </td>
-                    <td>x</td>
                     <td>y</td>
                     <td>z</td>
                     <td>a</td>
@@ -59,19 +59,29 @@
                     <td>
                         <code>inline-block</code>
                     </td>
-                    <td>x2</td>
                     <td>y2</td>
                     <td>z2</td>
                     <td>a2</td>
                 </tr>
                 <tr>
                     <td>
-                        <code>block</code>
+                        block
+                        <a href="./fixed/block/example.html">
+                            <iframe src="./fixed/block/example.html"></iframe>
+                        </a>
                     </td>
-                    <td>x3</td>
-                    <td>y3</td>
-                    <td>z3</td>
-                    <td>a3</td>
+                    <td>
+                        Elementy wyświetlane są jak leci:
+                        <iframe src="./fixed/block/brother-without-positioning.html"></iframe>
+                    </td>
+                    <td>
+                        Wartość <code>width</code> jest ważniejsza niż szerokość obliczona z parametrów <code>left</code> i <code>right</code>:
+                        <iframe src="./fixed/block/width.html"></iframe>
+                    </td>
+                    <td>
+                        Wartość <code>height</code> jest ważniejsza niż szerokość obliczona z parametrów <code>top</code> i <code>bottom</code>:
+                        <iframe src="./fixed/block/height.html"></iframe>
+                    </td>
                 </tr>
             </tbody>
         </table>
