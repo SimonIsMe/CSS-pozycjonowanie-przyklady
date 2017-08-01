@@ -30,6 +30,9 @@
                         Jak zachowa się element-brat, który nie ma pozycjonowania?
                     </th>
                     <th>
+                        Algorytm:
+                    </th>
+                    <th>
                         Szerokość
                     </th>
                     <th>
@@ -47,8 +50,15 @@
                         <iframe src="fixed/example.html"></iframe>
                     </td>
                     <td>
-                        Elementy wyświetlane są jak leci:
+                        Elementy wyświetlane są jak leci, tak jakby element pozycjonowany był na innej warstwie. Jego położenie nie wpływa na braci:
                         <iframe src="fixed/brother-without-positioning.html"></iframe>
+                    </td>
+                    <td>
+                        <ol>
+                            <li>
+                                Ustaw element względem okna przeglądarki
+                            </li>
+                        </ol>
                     </td>
                     <td>
                         Wartość <code>width</code> jest ważniejsza niż szerokość obliczona z parametrów <code>left</code> i <code>right</code>:
@@ -72,14 +82,23 @@
                         <iframe src="relative/brother-without-positioning.html"></iframe>
                     </td>
                     <td>
-                        Wartość <code>width</code> jest ważniejsza niż szerokość obliczona z parametrów <code>left</code> i <code>right</code>:
-                        <iframe src="relative/width.html"></iframe>
-                        Co ma sens, bo nie wiemy jak szeroki jest rodzic.
+                        <ol>
+                            <li>
+                                Ustaw element względem elementu-rodzica
+                            </li>
+                        </ol>
                     </td>
                     <td>
-                        Wartość <code>height</code> jest ważniejsza niż szerokość obliczona z parametrów <code>top</code> i <code>bottom</code>:
+                        Nie da sie z ustalić szerokości używając parametrów <code>left</code> i <code>right</code>, bo parametr <code>right</code> nie działa:
+                        <iframe src="relative/width.html"></iframe>
+
+                        Domyślnie szerokość jest taka, jaka jest szerokość rodzica.
+                    </td>
+                    <td>
+                        Nie da sie z ustalić wysokości używając parametrów <code>top</code> i <code>bottom</code>, bo parametr <code>bottom</code> nie działa:
                         <iframe src="relative/height.html"></iframe>
-                        Co ma sens, bo nie wiemy jak wysoki jest rodzic.
+
+                        Domyślna wysokość jest taka, aby treść się zmieściła
                     </td>
                 </tr>
                 <tr>
@@ -104,6 +123,19 @@
                         <iframe src="absolute/brother-without-positioning-relative-parent.html"></iframe>
                     </td>
                     <td>
+                        <ol>
+                            <li>
+                                Idź od danego elementu w górę (ojciec, dziadek, pra-dziadek, ...)
+                            </li>
+                            <li>
+                                Zatrzymaj się na pierwszym elemencie X, który ma <code>position:relative</code>. Domyślnie <code>body</code> ma ustawione <code>position:relative</code>
+                            </li>
+                            <li>
+                                Ustaw pozycjonowanie względem elementu X
+                            </li>
+                        </ol>
+                    </td>
+                    <td>
                         Wartość <code>width</code> jest ważniejsza niż szerokość obliczona z parametrów <code>left</code> i <code>right</code>:
                         <iframe src="absolute/width.html"></iframe>
                     </td>
@@ -126,7 +158,7 @@
                         Istnieje podział na elementy z <code>float</code> i bez <code>float</code>:
                         <ol>
                             <li>
-                                Elementy <strong>bez</strong> <code>float</code> umieszczane są jak leci względem immych elementów bez <code>float</code>
+                                Elementy <strong>bez</strong> <code>float</code> umieszczane są jak leci względem innych elementów bez <code>float</code>
                             </li>
                             <li>
                                 Elementy <strong>z</strong> <code>float</code> umieszczane są zgodnie z algorytmem względem immych elementów z <code>float</code>
@@ -135,6 +167,31 @@
                         <iframe src="float/brother-without-positioning.html"></iframe>
                         <iframe src="float/brother-without-positioning-order.html"></iframe>
                         <iframe src="float/brother-without-positioning-order-left.html"></iframe>
+                    </td>
+                    <td>
+                        Będąc w danym elemencie iterujemy po jego dzieciach w takiej kolejności w jakiej są zapisane w HTML'u. Dla każdego dziecka wykonuujemy następujące kroki:
+                        <ol>
+                            <li>
+                                Znajdź pozycję relatywną (x, y) lewego górnego rogu, w którym element powinen zostać wyświetlony element, tak <strong>jakby dotychczas wyświetlone elementy z float nieistniałyby</strong> i dany elemnt <strong>nie miałby</strong> <code>float</code>.
+                            </li>
+                            <li>
+                                Jeżeli element <strong>NIE MA</strong> <code>float</code> to wyświetl element
+                            </li>
+                            <li>
+                                Jeżeli element <strong>MA</strong> <code>float</code> to:
+                                <ol>
+                                    <li>
+                                        ustaw wartość x na najmniejszą/największą jak się da (czyli przesuwamy element najbardziej jak się da w lewo/prawo), ale tak, aby <strong>NIE wchodzić na inne elementy <code>float</code></strong>.
+                                    </li>
+                                    <li>
+                                        Elementy, które NIE są <code>float</code> olewamy i możemy je przykryć.
+                                    </li>
+                                    <li>
+                                        Zwróć uwagę, że nigdy nie modyfikujemy wartości <i>y</i>.
+                                    </li>
+                                </ol>
+                            </li>
+                        </ol>
                     </td>
                     <td>
                         Uwzględnia parametr <code>width</code>
